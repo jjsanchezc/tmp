@@ -47,3 +47,15 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  
+  deploy:
+    name: Deploy to Railway
+    needs: [build, push_to_registry]
+    runs-on: ubuntu-latest
+    container: jjsanchez1/p2-railway:master
+    env:
+      SVC_ID: my-service-id
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: railway up --service=${{ env.SVC_ID }}
