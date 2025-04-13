@@ -1,0 +1,1 @@
+# Step by step to set up a github action just to create a docker image and publish it into dockerhub
