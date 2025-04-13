@@ -52,7 +52,7 @@ jobs:
     name: Deploy to Railway
     needs: [build, push_to_registry]
     runs-on: ubuntu-latest
-    container: jjsanchez1/p2-railway:master
+    container: ghcr.io/railwayapp/cli:latest
     env:
       SVC_ID: 9aba30db-78b8-48e9-aaae-c5123d25b077
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
