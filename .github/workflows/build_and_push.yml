@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     container: jjsanchez1/p2-railway:master
     env:
-      SVC_ID: my-service-id
+      SVC_ID: p2-railway
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
     steps:
       - uses: actions/checkout@v3
