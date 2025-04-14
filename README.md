@@ -1,4 +1,28 @@
-# Step by step to set up a github action just to create a docker image and publish it into dockerhub
+# Runbook CI/CD Pipeline
 
- - Create 2 repo secrets, one for the docker username and one for the password
- 
+In this runbook will be explain everything about the pipeline
+
+## Pre-requisites
+### Required Access
+- Railway
+- Docker hub
+- Github (branches)
+
+### Secrets
+- DOCKER_USERNAME
+- DOCKER_PASSWORD
+- RAILWAY_TOKEN
+
+## Procedures (Github actions)
+
+The pipeline is designed to:
+- Test branch (build_and_push.yml):
+  - Test the code `still on development`
+  - Creates the Docker image
+
+- Master branch (deploy.yml):
+  - Restart the railway service so the new image is up
+
+### Triggers 
+- build_and_push.yml: Push to `tests` branch
+- deploy.yml: Push to `master` branch
