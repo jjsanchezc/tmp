@@ -50,7 +50,7 @@ jobs:
   
   deploy:
     name: Deploy to Railway
-    needs: [build, push_to_registry]
+    needs: push_to_registry
     runs-on: ubuntu-latest
     container: ghcr.io/railwayapp/cli:latest
     env:
