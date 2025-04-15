@@ -5,11 +5,15 @@ on:
     branches: ["master"]
   pull_request:
     branches: ["master"]
+
 jobs:
-    deploy:
-    name: Deploy to Railway
-    needs: push_to_registry
+
+  deploy:
+
     runs-on: ubuntu-latest
+
+    name: Deploy to Railway
+    
     container: ghcr.io/railwayapp/cli:latest
     env:
       SVC_ID: 9aba30db-78b8-48e9-aaae-c5123d25b077
